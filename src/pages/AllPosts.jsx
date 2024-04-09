@@ -7,7 +7,8 @@ function AllPosts() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
         appwriteService.getPosts(
-            [Query.orderDesc('$updatedAt')]
+            [Query.orderDesc('$updatedAt'),
+            Query.equal("status", "active")]
         ).then((posts) => {
             if (posts) {
                 setPosts(posts.documents)
