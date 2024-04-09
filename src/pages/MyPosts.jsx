@@ -22,7 +22,7 @@ function MyPosts() {
                 <Container>
                     <div className='flex flex-wrap'>
                         <div className='w-full p-2'>
-                            <h1 className='text-2xl font-bold hover:text-gray-500'>All your create posts will be available here.</h1>
+                            <h1 className='text-2xl font-bold hover:text-gray-500'>All the posts you create will be available here.</h1>
                         </div>
                     </div>
                 </Container>
