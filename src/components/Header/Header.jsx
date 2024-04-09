@@ -68,7 +68,7 @@ function Header() {
                         )}
                         {authStatus && (
                             <li>
-                                <LogoutBtn className='text-gray-700 font-bold bg-slate-200' />
+                                <LogoutBtn />
                             </li>
                         )}
                     </ul>
