@@ -3,6 +3,7 @@ import { Container } from '../components'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import postBlog from '/postBlog.svg'
+import login from '/login.svg'
 
 function Home() {
 
@@ -40,6 +41,11 @@ function Home() {
                     <div className='w-full p-2'>
                         <Link to='/login'><h1 className='text-2xl font-bold hover:text-gray-500'>Login to read and create posts.</h1></Link>
                     </div>
+                </div>
+            </Container>
+            <Container>
+                <div className='w-full content-center '>
+                    <img className='max-h-96 mx-auto max-w-full' src={login} alt="" />
                 </div>
             </Container>
         </div>
