@@ -14,7 +14,7 @@ function AllPosts() {
                 setPosts(posts.documents)
             }
         })
-    }, [])
+    }, [setPosts])
 
     // console.log(posts);
 
