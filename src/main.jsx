@@ -7,6 +7,7 @@ import store from "./store/store.js"
 import { AuthLayout } from './components/index.js'
 import { Home, Login, Signup, AllPosts, Post, AddPost, EditPosts, MyPosts } from './pages/index.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
   <Provider store={store}>
     <RouterProvider router={router} />
+    <SpeedInsights />
   </Provider>
 
 )
