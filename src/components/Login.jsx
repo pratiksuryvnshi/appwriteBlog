@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import { login as authLogin } from "../store/authSlice"
 import { Button, Input, Logo } from "./index";
@@ -12,6 +12,14 @@ function Login() {
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
+
+
+
+    // useEffect(() => {
+    //     const clicked = () => {
+    //         error
+    //     }
+    // }, [error])
 
     const login = async (data) => {
         setError("")
@@ -55,10 +63,13 @@ function Login() {
                             label="Email: "
                             placeholder="Enter your email"
                             type="email"
+                            name="useEmail"
+                            autoComplete="userEmail"
                             {...register("email", {
                                 required: true,
                                 validate: {
                                     matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Email address must be a valid address",
+
                                 }
                             })}
                         />
@@ -66,13 +77,19 @@ function Login() {
                             label="Password: "
                             placeholder="Enter your password"
                             type="password"
+                            name="password"
+                            autoComplete="current-password"
                             {...register("password", {
                                 required: true,
+                                validate: {
+                                    minLength: (value) => value.length >= 8 || setError("Password must be at least 8 characters"),
+                                }
                             })}
                         />
                         <Button
                             type='submit'
-                            className='w-full'
+                            onSubmit={Login}
+                            className='w-full hover:bg-blue-800 focus:bg-green-600'
                         >Login</Button>
                     </div>
                 </form>

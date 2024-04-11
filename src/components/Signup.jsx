@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import authService from '../appwrite/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../store/authSlice'
@@ -10,7 +10,7 @@ function Signup() {
     const navigate = useNavigate()
     const [error, setError] = useState("")
     const dispatch = useDispatch()
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, errors } = useForm()
 
     const create = async (data) => {
         setError("")
@@ -25,6 +25,9 @@ function Signup() {
             setError(error.message)
         }
     }
+    console.log(error);
+
+
 
     return (
         <div className="flex items-center justify-center">
@@ -49,19 +52,27 @@ function Signup() {
                     <div className='space-y-5'>
                         <Input
                             label="Full Name: "
+                            type="text"
+                            name="username"
+                            autoComplete="username"
                             placeholder="Enter your full name"
                             {...register("name", {
                                 required: true,
+                                validate: {
+                                    minLength: (value) => value.length > 2 || "Name must be at least 3 characters",
+                                }
                             })}
                         />
                         <Input
                             label="Email: "
                             placeholder="Enter your email"
                             type="email"
+                            name="useEmail"
+                            autoComplete="userEmail"
                             {...register("email", {
                                 required: true,
                                 validate: {
-                                    matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Email address must be a valid address",
+                                    matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value),
                                 }
                             })}
                         />
@@ -69,16 +80,18 @@ function Signup() {
                             label="password"
                             placeholder="Enter your password"
                             type="password"
+                            name="password"
+                            autoComplete="current-password"
                             {...register("password", {
                                 required: true,
                                 minLength: {
-                                    minLength: (value) => (value.length > 8).test(value) || "Password must be at least 8 characters long",
+                                    minLength: (value) => (value.length > 8).test(value),
                                 }
                             })}
                         />
                         <Button
                             type='submit'
-                            className='w-full'
+                            className='w-full hover:bg-blue-800 focus:bg-green-600'
                         >Create Account</Button>
                     </div>
                 </form>
