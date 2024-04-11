@@ -17,16 +17,19 @@ function MyPosts() {
     }, [])
 
 
+    console.log(userData);
 
 
 
-    if (posts.length === 0 || !userData) {
+
+    if (posts.length === 0) {
         return (
             <div className='w-full py-8 mt-4 text-center'>
                 <Container>
                     <div className='flex flex-wrap'>
                         <div className='w-full p-2'>
                             <h1 className='text-2xl font-bold hover:text-gray-500'>All the posts you create will be available here.</h1>
+                            <p>If your posts are not here just reload.</p>
                         </div>
                     </div>
                 </Container>
