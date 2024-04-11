@@ -58,9 +58,6 @@ function Signup() {
                             placeholder="Enter your full name"
                             {...register("name", {
                                 required: true,
-                                validate: {
-                                    minLength: (value) => value.length > 2 || "Name must be at least 3 characters",
-                                }
                             })}
                         />
                         <Input

@@ -1,5 +1,5 @@
 import conf from "../conf/conf"
-import { Client, ID, Databases, Storage, Query, Permission, Role } from "appwrite";
+import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 export class Service {
     client = new Client()
@@ -129,7 +129,7 @@ export class Service {
         try {
             await this.bucket.deleteFile(
                 conf.appwriteBucketId,
-                fileId
+                String(fileId)
             )
             return true
         } catch (error) {

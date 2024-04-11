@@ -14,7 +14,11 @@ function MyPosts() {
                 setPosts(posts.documents)
             }
         })
-    }, [userData, setPosts])
+    }, [])
+
+
+
+
 
     if (posts.length === 0 || !userData) {
         return (

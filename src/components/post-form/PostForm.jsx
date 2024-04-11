@@ -19,6 +19,8 @@ export default function PostForm({ post }) {
     const navigate = useNavigate()
     const useData = useSelector(state => state.auth.userData)
 
+    // console.log(useData);
+
     const submit = async (data) => {
         if (post) {
             const file = data.image[0] ? await appwriteService.updateFile(data.image[0]) : null
@@ -118,8 +120,8 @@ export default function PostForm({ post }) {
                     {...register("status", { required: true })}
                 />
                 <Button type='submit'
-                    bgColor={post ? "bg-green-500" : undefined}
-                    className='w-full'>
+                    // bgColor={post ? "bg-green-500" : undefined}
+                    className='w-full hover:bg-blue-800 focus:bg-green-500'>
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>
