@@ -20,7 +20,7 @@ function Home() {
                 <Container>
                     <div className='flex flex-wrap'>
                         <div className='w-full p-2'>
-                            <h1 className='text-2xl font-bold ' >Welcome to my website, Do add a post!! </h1>
+                            <h1 className='text-2xl font-bold ' >Thank you for visiting my website, Do add a post!! </h1>
                         </div>
                     </div>
                 </Container>
