@@ -141,7 +141,7 @@ export class Service {
     getFilePreview(fileId) {
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,
-            fileId
+            String(fileId)
         )
     }
 
@@ -149,7 +149,7 @@ export class Service {
         try {
             await this.bucket.updateFile(
                 conf.appwriteBucketId,
-                fileId
+                String(fileId)
             )
             return true
         } catch (error) {

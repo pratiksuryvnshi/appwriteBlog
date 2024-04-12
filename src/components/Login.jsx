@@ -27,9 +27,11 @@ function Login() {
             const session = await authService.login(data)
             if (session) {
                 const userData = await authService.getCurrentUser()
-                if (userData) { dispatch(authLogin(userData)) };
-                // console.log(userData);
-                navigate("/all-posts")
+                if (userData) {
+                    dispatch(authLogin(userData))
+                    navigate("/all-posts")
+                };
+                console.log(userData);
             }
         } catch (error) {
             setError(error.message)

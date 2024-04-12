@@ -7,6 +7,7 @@ export default function Protected({ children, authentication = true }) {
     const navigate = useNavigate()
     const [loader, setLoader] = useState(true)
     const authStatus = useSelector(state => state.auth.status)
+    console.log(authStatus);
 
     useEffect(() => {
         // TODO: make it more easy to understand
@@ -16,7 +17,7 @@ export default function Protected({ children, authentication = true }) {
         if (authentication && authStatus !== authentication) {
             navigate("/login")
         } else if (!authentication && authStatus !== authentication) {
-            navigate("/")
+            navigate("/all-posts")
         }
         setLoader(false)
     }, [authStatus, navigate, authentication])
